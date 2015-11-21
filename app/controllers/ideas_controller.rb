@@ -63,6 +63,13 @@ class IdeasController < ApplicationController
     end
   end
 
+  def random
+
+    @ideas = Idea.all.shuffle.sample(7)
+    @idea = @ideas.pop
+    @random_adj = %W(美味 高熱量 灰常好ㄘ).sample
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea

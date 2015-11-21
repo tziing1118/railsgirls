@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   resources :comments
   get 'pages/info'
+  get 'pages/home'
 
-  root to: "ideas#index"
+  root to: "pages#home"
   devise_for :users
-  resources :ideas
+
+  resources :ideas do
+    get 'random', on: :collection
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

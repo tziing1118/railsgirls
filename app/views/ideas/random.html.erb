@@ -1,0 +1,37 @@
+<h2 class="tc">恭喜你！</h3>
+<h1 class="tc" style="line-height: 1.4;">
+  你抽到的是 <strong><%= @random_adj %></strong> 的 <strong><%= @idea.name %></strong>
+</h1>
+
+<div class="image-container">
+  <%= image_tag @idea.picture %>
+  <div>
+    <%= @idea.description %>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<ul class="raw panel panel-default gallary clearfix">
+  <h2 class="panel-header">哈哈  你吃不到</h2>
+  <% @ideas.each do |idea| %>
+    <li class="col-md-2">
+      <%= idea.name %>
+      <%= image_tag idea.picture %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+<br>
+<br>
+
+<%= link_to "還想吃喔！！ \xF0\x9F\x91\x86",
+    random_ideas_path,
+    class: "random_btn" %>
+
+<br>
+<br>
+<br>
